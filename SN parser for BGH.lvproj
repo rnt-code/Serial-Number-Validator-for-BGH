@@ -59,7 +59,6 @@
 				<Item Name="Ev Queued SM API.lvlib" Type="Library" URL="../libraries/EV QSM support/Ev Queued SM API.lvlib"/>
 			</Item>
 		</Item>
-		<Item Name="eval_free_pass.vi" Type="VI" URL="../dependencies/eval_free_pass.vi"/>
 		<Item Name="SN_parser.vi" Type="VI" URL="../SN_parser.vi"/>
 		<Item Name="SN_parser_new.vi" Type="VI" URL="../SN_parser_new.vi"/>
 		<Item Name="SN_rules.json" Type="Document" URL="../SN_rules.json"/>
