@@ -35,6 +35,7 @@
 				<Item Name="verify_SN_format_new.vi" Type="VI" URL="../dependencies/Verify SN format/verify_SN_format_new.vi"/>
 			</Item>
 			<Item Name="auto_regex.vi" Type="VI" URL="../dependencies/auto_regex.vi"/>
+			<Item Name="check_empty_SN.vi.vi" Type="VI" URL="../dependencies/check_empty_SN.vi.vi"/>
 			<Item Name="check_max_greater_or_equal_than_min.vi" Type="VI" URL="../dependencies/check_max_greater_or_equal_than_min.vi"/>
 			<Item Name="check_min_max_rules.vi" Type="VI" URL="../dependencies/check_min_max_rules.vi"/>
 			<Item Name="check_SN_length_.vi" Type="VI" URL="../dependencies/check_SN_length_.vi"/>
@@ -87,7 +88,6 @@
 				<Item Name="Ev Queued SM API.lvlib" Type="Library" URL="../libraries/EV QSM support/Ev Queued SM API.lvlib"/>
 			</Item>
 		</Item>
-		<Item Name="check_empty_SN.vi.vi" Type="VI" URL="../dependencies/check_empty_SN.vi.vi"/>
 		<Item Name="SN_parser.vi" Type="VI" URL="../SN_parser.vi"/>
 		<Item Name="SN_parser_new.vi" Type="VI" URL="../SN_parser_new.vi"/>
 		<Item Name="SN_Patterns.ini" Type="Document" URL="../SN_Patterns.ini"/>
