@@ -1,0 +1,36 @@
+Resumen de funcionamiento del parser de número de serie, basado en una máquina de estado manejada por cola.
+
+Al iniciar la máquina, carga en la cola dos estados: 'Intialize' que carga los datos de entrada en un cluster que envuelve todos estos: SN in (string del número de serie), Regex (array de strings con las tres expresiones regulares), Parse mode (enum con las opciones: FREE PASS, LENGTH BASED, REGEX BASED, AUTO), Length range (array de enteros con el máximo y mínimo para la longitud) y Device Type (enum con las opciones BGH Asset, BGH Product y SAMSUNG Product). Y el estado es 'Dispatch Parse Handler' que es el que carga la cola (en base a Parse mode) con las diferentes acciones que describo a continuación.:
+
+--------------------------------------------------
+Si parse mode = FREE PASS, carga en la cola:
+'Check SN Empty', 'Free Pass Parser', 'Shutdown'.
+
+'Check SN Empty' ejecuta el subVI CHECK EMPTY SN, si no es vacío el subVI responde son SN ok?=PASS, y Device Type out=GENERIC Product. Si es vacío, SN ok?=FALSE, Device Type out="", y arroja el error 5101: "The serial number received in the parser is an empty string. Not allowed.". El error lleva al Shutdown state.
+'Free Pass parser' solo carga nuevamente SN ok?=TRUE y Device Type out=GENERIC Product
+'Shutdown' termina la máquina de estado.
+--------------------------------------------------
+Si parse mode = LENGTH BASED, carga en la cola:
+'Check SN Empty', 'Length Based Parser', 'Shutdown'.
+
+'Check SN Empty' ejecuta el subVI CHECK EMPTY SN, si no es vacío el subVI responde son SN ok?=PASS, y Device Type out=GENERIC Product. Si es vacío, SN ok?=FALSE, Device Type out="", y arroja el error 5101: "The serial number received in the parser is an empty string. Not allowed.". El error lleva al Shutdown state.
+'Length Based Parser' ejecuta el subVI EVAL LENGTH BASED, este verifica si la longitud del SN está dentro del rango definido por Max y Min. Pero también verifica que Max y Min no sean cero simultánemamente y si Min > Max.
+Si Max=Min=0, error 5102: "The maximum and minimum lengths cannot be equal to zero. Not allowed.", la salida del subVI es: SN="", SN ok?=FALSE y Device Type out="". Si Min > Max, error 5103: "The maximum length must be greater than the minimum length. Min > Max is not allowed.", la salida del subVI es: SN="", SN ok?=FALSE y Device Type out="".
+Si la longitud del SN está fuera del rango definido por Min y Max, error 5104: "The length of the serial number must be within the range set by the minimum and maximum. Serial number length out of range.", la salida del subVI es: SN="", SN ok?=FALSE y Device Type out="". El error lleva al Shutdown state.
+Si no hay error, la salida del subVI es: SN=SN, SN ok?=TRUE y Device Type out="GENERIC Product".
+'Shutdown' termina la máquina de estado.
+--------------------------------------------------
+Si parse mode = REGEX BASED, carga en la cola:
+'Check SN Empty', 'Regex Based Parser', 'Shutdown'
+
+'Check SN Empty' ejecuta el subVI CHECK EMPTY SN, si no es vacío el subVI responde son SN ok?=PASS, y Device Type out=GENERIC Product. Si es vacío, SN ok?=FALSE, Device Type out="", y arroja el error 5101: "The serial number received in the parser is an empty string. Not allowed.". El error lleva al Shutdown state.
+'Regex Based Parser' ejecuta el subVI EVAL REGEX BASED, este en base a Device Type y Regex determina si el SN corresponde al Device Type escogido. Si hace el match la salida del subVI es: SN=SN, SN ok?=TRUE y Device Type out=el escogido en Device Type. Si falla en esto, error 5105: "The serial number does not conform to the selected regular expression.", la salida del subVI es: SN="", SN ok?=FALSE y Device Type out="". El error lleva al Shutdown state.
+'Shutdown' termina la máquina de estado.
+--------------------------------------------------
+Si parse mode = AUTO, carga en la cola:
+'Check SN Empty', 'Auto Parser', 'Shutdown'
+
+'Check SN Empty' ejecuta el subVI CHECK EMPTY SN, si no es vacío el subVI responde son SN ok?=PASS, y Device Type out=GENERIC Product. Si es vacío, SN ok?=FALSE, Device Type out="", y arroja el error 5101: "The serial number received in the parser is an empty string. Not allowed.". El error lleva al Shutdown state.
+'Auto Parser' ejecuta el subVI AUTO REGEX, este en base a SN y Regex busca con cual expresión regular el SN hace match, si la encuentra la salida del subVI es: SN=SN, SN ok?=TRUE y Device Type out=con la que hace match (es una de las opciones de Device Type). Si no no encuentra el match, erroja el error 5106: "The serial number does not match any of the defined regular expressions.", la salida del subVI es: SN="", SN ok?=FALSE y Device Type out="". El error lleva al Shutdown state.
+'Shutdown' termina la máquina de estado.
+--------------------------------------------------
