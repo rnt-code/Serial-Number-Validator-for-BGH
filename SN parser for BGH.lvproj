@@ -78,9 +78,9 @@
 				<Item Name="Ev Queued SM API.lvlib" Type="Library" URL="../libraries/EV QSM support/Ev Queued SM API.lvlib"/>
 			</Item>
 		</Item>
+		<Item Name="SN cases.txt" Type="Document" URL="../SN cases.txt"/>
 		<Item Name="SN_parser.vi" Type="VI" URL="../SN_parser.vi"/>
 		<Item Name="SN_Patterns.ini" Type="Document" URL="../SN_Patterns.ini"/>
-		<Item Name="SN_rules.json" Type="Document" URL="../SN_rules.json"/>
 		<Item Name="Use case.vi" Type="VI" URL="../Use case.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
