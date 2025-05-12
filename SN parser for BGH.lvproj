@@ -13,9 +13,11 @@
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="controls" Type="Folder">
+			<Item Name="SN Data.ctl" Type="VI" URL="../controls/SN Data.ctl"/>
+			<Item Name="SN_device_type.ctl" Type="VI" URL="../controls/SN_device_type.ctl"/>
+			<Item Name="SN_device_type_out.ctl" Type="VI" URL="../controls/SN_device_type_out.ctl"/>
+			<Item Name="SN_length.ctl" Type="VI" URL="../controls/SN_length.ctl"/>
 			<Item Name="SN_parse_mode.ctl" Type="VI" URL="../controls/SN_parse_mode.ctl"/>
-			<Item Name="SN_parser_data_cluster.ctl" Type="VI" URL="../controls/SN_parser_data_cluster.ctl"/>
-			<Item Name="SN_parser_states.ctl" Type="VI" URL="../controls/SN_parser_states.ctl"/>
 		</Item>
 		<Item Name="dependencies" Type="Folder">
 			<Item Name="error VIs" Type="Folder">
@@ -27,22 +29,10 @@
 				<Item Name="error 5105.vi" Type="VI" URL="../dependencies/error VIs/error 5105.vi"/>
 				<Item Name="error 5106.vi" Type="VI" URL="../dependencies/error VIs/error 5106.vi"/>
 			</Item>
-			<Item Name="Verify SN format" Type="Folder">
-				<Item Name="Type Definitions" Type="Folder">
-					<Item Name="verify_SN_format_control.ctl" Type="VI" URL="../dependencies/Verify SN format/Type Definitions/verify_SN_format_control.ctl"/>
-					<Item Name="verify_SN_format_states.ctl" Type="VI" URL="../dependencies/Verify SN format/Type Definitions/verify_SN_format_states.ctl"/>
-				</Item>
-				<Item Name="verify_SN_format_new.vi" Type="VI" URL="../dependencies/Verify SN format/verify_SN_format_new.vi"/>
-			</Item>
 			<Item Name="auto_regex.vi" Type="VI" URL="../dependencies/auto_regex.vi"/>
 			<Item Name="check_empty_SN.vi.vi" Type="VI" URL="../dependencies/check_empty_SN.vi.vi"/>
-			<Item Name="check_max_greater_or_equal_than_min.vi" Type="VI" URL="../dependencies/check_max_greater_or_equal_than_min.vi"/>
-			<Item Name="check_min_max_rules.vi" Type="VI" URL="../dependencies/check_min_max_rules.vi"/>
-			<Item Name="check_SN_length_.vi" Type="VI" URL="../dependencies/check_SN_length_.vi"/>
 			<Item Name="eval_length_based.vi" Type="VI" URL="../dependencies/eval_length_based.vi"/>
 			<Item Name="eval_regex_based.vi" Type="VI" URL="../dependencies/eval_regex_based.vi"/>
-			<Item Name="SN_core_parser.vi" Type="VI" URL="../dependencies/SN_core_parser.vi"/>
-			<Item Name="SN_regular_expression_based_parser.vi" Type="VI" URL="../dependencies/SN_regular_expression_based_parser.vi"/>
 		</Item>
 		<Item Name="libraries" Type="Folder">
 			<Item Name="API-Config-Files-Management" Type="Folder">
@@ -88,8 +78,6 @@
 				<Item Name="Ev Queued SM API.lvlib" Type="Library" URL="../libraries/EV QSM support/Ev Queued SM API.lvlib"/>
 			</Item>
 		</Item>
-		<Item Name="SN Data.ctl" Type="VI" URL="../controls/SN Data.ctl"/>
-		<Item Name="SN_parser.vi" Type="VI" URL="../SN_parser.vi"/>
 		<Item Name="SN_parser_new.vi" Type="VI" URL="../SN_parser_new.vi"/>
 		<Item Name="SN_Patterns.ini" Type="Document" URL="../SN_Patterns.ini"/>
 		<Item Name="SN_rules.json" Type="Document" URL="../SN_rules.json"/>
@@ -136,9 +124,6 @@
 				<Item Name="Trim Whitespace.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Trim Whitespace.vi"/>
 				<Item Name="whitespace.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/whitespace.ctl"/>
 			</Item>
-			<Item Name="SN_device_type.ctl" Type="VI" URL="../controls/SN_device_type.ctl"/>
-			<Item Name="SN_device_type_out.ctl" Type="VI" URL="../controls/SN_device_type_out.ctl"/>
-			<Item Name="SN_length.ctl" Type="VI" URL="../controls/SN_length.ctl"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
