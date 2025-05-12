@@ -107,7 +107,7 @@ The module returns a cluster with the following fields:
 
 ### Author
 
-Developed by Ramón, Tierra del Fuego, Argentina.
+Developed by Ramón, Tierra del Fuego, Argentina. NOTE: Developed in LabVIEW 2024.
 
 ---
 
