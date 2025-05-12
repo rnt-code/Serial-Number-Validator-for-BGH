@@ -88,6 +88,7 @@
 				<Item Name="Ev Queued SM API.lvlib" Type="Library" URL="../libraries/EV QSM support/Ev Queued SM API.lvlib"/>
 			</Item>
 		</Item>
+		<Item Name="SN Data.ctl" Type="VI" URL="../controls/SN Data.ctl"/>
 		<Item Name="SN_parser.vi" Type="VI" URL="../SN_parser.vi"/>
 		<Item Name="SN_parser_new.vi" Type="VI" URL="../SN_parser_new.vi"/>
 		<Item Name="SN_Patterns.ini" Type="Document" URL="../SN_Patterns.ini"/>
