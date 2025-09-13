@@ -20,6 +20,7 @@
 	</Item>
 	<Item Name="Public" Type="Folder">
 		<Item Name="Type Def" Type="Folder">
+			<Item Name="data--cluster.ctl" Type="VI" URL="../data--cluster.ctl"/>
 			<Item Name="SN Data.ctl" Type="VI" URL="../SN Data.ctl"/>
 			<Item Name="SN_device_type.ctl" Type="VI" URL="../SN_device_type.ctl"/>
 			<Item Name="SN_device_type_out.ctl" Type="VI" URL="../SN_device_type_out.ctl"/>

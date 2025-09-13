@@ -18,7 +18,6 @@
 			<Item Name="Use case.vi" Type="VI" URL="../Use case.vi"/>
 		</Item>
 		<Item Name="API Config Files Management.lvlib" Type="Library" URL="../libraries/API-Config-Files-Management/API Config Files Management.lvlib"/>
-		<Item Name="ED Queued State Machine.lvlib" Type="Library" URL="../Event-Driven QSM/ED Queued State Machine.lvlib"/>
 		<Item Name="SN Validator.lvlib" Type="Library" URL="../SN Validator/SN Validator.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies"/>
 		<Item Name="Build Specifications" Type="Build"/>
